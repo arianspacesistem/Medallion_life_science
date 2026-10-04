@@ -80,7 +80,7 @@ flowchart LR
     W -.->|reads/updates| B2
 ```
 
-## #bronze — Raw ingestion layer
+## Bronze — Raw ingestion layer
 
 The Bronze layer stores data **exactly as received** from each source API, preserving full fidelity for reprocessing and auditability.
 
@@ -93,7 +93,7 @@ The Bronze layer stores data **exactly as received** from each source API, prese
 - **Resilience**: HTTP requests use a retry-enabled session (`create_session_with_retries`) to tolerate transient API failures.
 - **Theory applied**: Write-Audit-Publish pattern and monotonicity checks on ingestion timestamps.
 
-## #silver — Cleaned and quality-checked layer
+## Silver — Cleaned and quality-checked layer
 
 The Silver layer transforms raw Bronze records into **typed, validated, deduplicated** data, splitting it into valid records and a quarantine table.
 
@@ -110,7 +110,7 @@ The Silver layer transforms raw Bronze records into **typed, validated, deduplic
 - **Incremental MERGE**: valid records are merged into Silver by primary key; quarantine tables are overwritten each run.
 - **OpenFDA Silver**: analogous cleaning/casting (dates, serious-event flags, patient sex, drug/reaction counts) with its own valid/quarantine split.
 
-## #gold — Dimensional model (serving layer)
+## Gold — Dimensional model (serving layer)
 
 The Gold layer reshapes Silver data into a **Kimball-style star schema**, optimized for querying, BI tools, and analytics — no more "cleaning", just **semantic modeling**.
 
