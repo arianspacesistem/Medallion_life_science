@@ -148,7 +148,6 @@ cp .env.example .env   # fill in AZURE_STORAGE_CONNECTION_STRING, key1azuredatal
 - Open `Medallion.ipynb` and run the cells in order using the `.venv` kernel for the **local filesystem** version.
 - Open `Medallion_azure.ipynb` and run the cells in order for the **Azure Data Lake (ADLS Gen2)** version — make sure `key1azuredatalake` and `key1azuredatalakeconx` are set in `.env` first.
 
-```markdown
 ## Next steps
 
 The current notebooks already deliver a complete, working Medallion pipeline. The following improvements would move the project closer to a production-grade setup:
@@ -225,11 +224,3 @@ jobs:
 ```
 
 Secrets (`AZURE_STORAGE_KEY`, `AZURE_STORAGE_CONNECTION_STRING`, etc.) should be stored in the repository’s GitHub Secrets so that credentials never appear in the code.
-
-### 3. Additional improvements (nice-to-have)
-
-- Unit tests for data-quality rules and key transformations (`pytest` + `chispa` or `pyspark.testing`).
-- Simple data-quality dashboard (e.g. Streamlit) that reads the quarantine tables and the `dq_*` flags.
-- Basic data lineage documentation or OpenLineage integration.
-- Schema-evolution policy (explicit `mergeSchema` / `overwriteSchema` rules per layer).
-```
