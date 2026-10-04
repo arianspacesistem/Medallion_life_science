@@ -1,0 +1,11 @@
+pyspark==3.5.1
+delta-spark==3.2.0
+requests
+python-dotenv
+azure-storage-file-datalake
+azure-identity
+ipykernel
+jupyter
+ipywidgets
+pandas
+matplotlib
