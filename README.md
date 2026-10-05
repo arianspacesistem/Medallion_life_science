@@ -152,7 +152,7 @@ cp .env.example .env   # fill in AZURE_STORAGE_CONNECTION_STRING, key1azuredatal
 
 The current notebooks already deliver a complete, working Medallion pipeline. The following improvements would move the project closer to a production-grade setup:
 
-### 1. Modular Python package structure
+### Modular Python package structure
 
 Refactor the notebook logic into a proper Python package so that each responsibility lives in its own module. A possible layout:
 
